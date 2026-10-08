@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Memory Challenge</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+<div id="app">
+
+
+    <!-- =====================================
+         START SCREEN
+         ===================================== -->
+
+    <section id="start-screen" class="screen active">
+
+        <div class="card">
+
+            <div class="robot">🤖</div>
+
+            <h1>AI Memory Challenge</h1>
+
+            <p class="subtitle">
+                How much information can you remember?
+            </p>
+
+            <p>
+                Memorize numbers and their positions around the AI,
+                then use your memory and maths skills to answer questions.
+            </p>
+
+
+            <div class="start-buttons">
+
+                <button id="start-btn">
+                    START GAME
+                </button>
+
+                <button id="how-to-play-btn" class="secondary-btn">
+                    HOW DO I PLAY?
+                </button>
+
+            </div>
+
+
+            <div class="info">
+
+                <span>🧠 Memory</span>
+
+                <span>➕ Mathematics</span>
+
+                <span>⚡ Speed</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         HOW TO PLAY
+         ===================================== -->
+
+    <section id="how-to-play-screen" class="screen">
+
+        <div class="card how-card">
+
+            <h1>How Do I Play?</h1>
+
+            <p class="how-intro">
+                First, memorize the numbers and where they appear.
+                Then answer the question after the numbers disappear.
+            </p>
+
+
+            <!-- POSITION DIAGRAM -->
+
+            <div class="position-diagram">
+
+                <div class="diagram-number top">
+                    TOP
+                </div>
+
+                <div class="diagram-number top-left">
+                    TOP-LEFT
+                </div>
+
+                <div class="diagram-number top-right">
+                    TOP-RIGHT
+                </div>
+
+                <div class="diagram-number left">
+                    LEFT
+                </div>
+
+                <div class="diagram-robot">
+                    🤖
+                </div>
+
+                <div class="diagram-number right">
+                    RIGHT
+                </div>
+
+                <div class="diagram-number bottom-left">
+                    BOTTOM-LEFT
+                </div>
+
+                <div class="diagram-number bottom-right">
+                    BOTTOM-RIGHT
+                </div>
+
+                <div class="diagram-number bottom">
+                    BOTTOM
+                </div>
+
+            </div>
+
+
+            <!-- EXAMPLES -->
+
+            <div class="example-box">
+
+                <h3>Example 1 — Remember</h3>
+
+                <p>
+                    If the number at the <strong>TOP-RIGHT</strong>
+                    was 15:
+                </p>
+
+                <div class="example-question">
+                    What was the number at the TOP-RIGHT?
+                </div>
+
+                <div class="example-answer">
+                    Answer: 15
+                </div>
+
+            </div>
+
+
+            <div class="example-box">
+
+                <h3>Example 2 — Sum</h3>
+
+                <p>
+                    If TOP was 12 and BOTTOM-RIGHT was 7:
+                </p>
+
+                <div class="example-question">
+                    What is TOP + BOTTOM-RIGHT?
+                </div>
+
+                <div class="example-answer">
+                    12 + 7 = 19
+                </div>
+
+            </div>
+
+
+            <div class="how-buttons">
+
+                <button id="how-back-btn" class="secondary-btn">
+                    BACK
+                </button>
+
+                <button id="how-start-btn">
+                    START GAME
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         GAME SCREEN
+         ===================================== -->
+
+    <section id="game-screen" class="screen">
+
+
+        <!-- HEADER -->
+
+        <div class="game-header">
+
+
+            <div>
+
+                <span>LEVEL</span>
+
+                <strong id="level-display">
+                    1
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>SCORE</span>
+
+                <strong id="score-display">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>TIME</span>
+
+                <strong id="time-display">
+                    00:00
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>QUESTION</span>
+
+                <strong id="question-display">
+                    1/3
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MEMORY CIRCLE -->
+
+        <div id="game-area">
+
+            <div id="memory-circle">
+
+                <div class="robot-center">
+                    🤖
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- QUESTION -->
+
+        <div id="question-area">
+
+            <h2 id="question">
+                Get ready...
+            </h2>
+
+
+            <div id="answer-area"></div>
+
+
+            <div class="game-buttons">
+
+
+                <button
+                    id="hint-btn"
+                    class="secondary-btn hidden">
+
+                    💡 HINT
+
+                </button>
+
+
+                <button
+                    id="dont-know-btn"
+                    class="secondary-btn hidden">
+
+                    I DON'T KNOW
+
+                </button>
+
+
+                <button
+                    id="submit-btn"
+                    class="hidden">
+
+                    SUBMIT
+
+                </button>
+
+
+            </div>
+
+
+            <div id="hint-area"></div>
+
+
+            <p id="feedback"></p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         FINAL SCREEN
+         ===================================== -->
+
+    <section id="final-screen" class="screen">
+
+        <div class="card">
+
+            <div class="robot">
+                🏆
+            </div>
+
+
+            <h1>
+                Challenge Complete!
+            </h1>
+
+
+            <p>
+                You completed the AI Memory Challenge.
+            </p>
+
+
+            <div class="results">
+
+
+                <div class="result-box">
+
+                    <span>
+                        Score
+                    </span>
+
+                    <strong id="final-score">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="result-box">
+
+                    <span>
+                        Accuracy
+                    </span>
+
+                    <strong id="final-accuracy">
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div class="result-box">
+
+                    <span>
+                        Time
+                    </span>
+
+                    <strong id="final-time">
+                        00:00
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+            <h2 id="final-message">
+                Memory Master!
+            </h2>
+
+
+            <button id="restart-btn">
+                PLAY AGAIN
+            </button>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
